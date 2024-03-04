@@ -1,7 +1,21 @@
-#root {
-  max-width: 1280px;
+body {
+  background-color: #F8F9FA;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
+.header {
+  background-color: #FFFFFF;
+  height: 100px;
+}
+
+
+.cityDetails {
+  background-color:#FFFFFF;
+}
+
+
+.threeHourWeather {
+  height: 200px;
+  width: 20px;
+  display: flex;
+}

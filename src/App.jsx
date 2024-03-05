@@ -25,27 +25,17 @@ function App() {
 
   useEffect(()=> {
     const api_key = import.meta.env.VITE_WEATHER_API_KEY
-    // fetch current weatherdata for the cities
-    const fetchWeather = async () => {
-      const data = await fetchWeatherDataForCities(cities,api_key)
-      setWeathers(data)
+    // fetch current weatherdata for the cities and threehours interval weather data 
+    const fetchData = async () => {
+      const currectWeatherData = await fetchWeatherDataForCities(cities,api_key)
+      setWeathers(currectWeatherData)
+      const threeHourWeatherData = await fetchThreeHourWeather(cities, api_key)
+      setHourlyWeathers(threeHourWeatherData)
      
     }
-    fetchWeather();
+    fetchData();
   }, []);
   
-  useEffect(() => {
-    //fetch threehour weather interval for the cities
-    const api_key = import.meta.env.VITE_WEATHER_API_KEY
-    const getThreehoursWeatherInfo = async () => {
-      const IntervalData = await fetchThreeHourWeather(cities, api_key)
-      setHourlyWeathers(IntervalData)
-    
-    }
-    getThreehoursWeatherInfo();
-  }, []);
-  
- 
 
  
   return (

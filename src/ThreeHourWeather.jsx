@@ -62,27 +62,18 @@ border-radius: 5px;
     margin-right: 0px;
   }
   
-@media (max-width: 768px) { /* Tablet view */
-width: calc(20% - 8px);  
-  }
-
-@media (max-width: 576px) { /* Mobile devices */
-
-width: calc(20% - 8px); 
-  }
-
 `;
 
 
 const CurrentTime =styled.p`
-font-size: 13pt;
+font-size: 13px;
 color: ${colors.secondaryTextColor};
 margin-bottom: 0px;
 `;
 
 
 const Temperature =styled.p`
-font-size: 15pt;
+font-size: 15px;
 color: ${colors.primaryTextColor};
 margin-top: 0px;
 `;
@@ -91,7 +82,7 @@ const TemperatuDetailsWrap = styled.div`
 background-color: ${colors.lightBlueBackground};
 padding: 5px 0 5px 0;
 p {
-  font-size: 10pt;
+  font-size: 10px;
   color: ${colors.secondaryTextColor};
   margin-top: 0px;
   margin-bottom: 0px;

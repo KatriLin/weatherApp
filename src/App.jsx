@@ -44,14 +44,14 @@ function App() {
 
     
     <div>
+    <GlobalStyle />
     <Header />
-      <GlobalStyle />
-       <DropdownMenu cities={cities} handleCitySelect={handleCitySelect} />
-       
+    <DropdownMenu cities={cities} handleCitySelect={handleCitySelect} /> 
+    <AppWrapper>
        {weathers.map((weather, index) => (
   <CityWeather key={index} hourlyWeathers={hourlyWeathers} weather={weather} cityWeathertoShow={cityWeathertoShow} />
 ))}
- 
+ </AppWrapper>
     </div>
    
   )
@@ -67,4 +67,21 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+
+const AppWrapper = styled.div`
+margin: 0px;
+max-width: 100%;
+@media (min-width: 768px) { /* styles for tablet display the weathercontainer element next to eachother in tablet*/
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: auto auto;
+
+
+  } 
+  @media (min-width: 1024px) { /* Desktop view */
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+  
+`;
 export default App

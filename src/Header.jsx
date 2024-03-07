@@ -20,9 +20,8 @@ align-items: center;
 background-color: ${colors.whiteBackground};
 `;
 
-const HearderText =styled.h1`
-font-size: 23pt;
-
+const HearderText =styled.p`
+font-size: 23px;
 color: ${colors.primaryTextColor};
 background-color: ${colors.whiteBackground};
 `;

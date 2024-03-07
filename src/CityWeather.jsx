@@ -81,7 +81,10 @@ const formattedDate = `${month} ${day}${dateEnding}`;
 
 
 const WeatherWrapper = styled.div`
-margin: 0 15px 25px 15px;
+margin: 15px 15px 20px 15px;
+@media (min-width: 768px) { /* styles for tablet*/
+margin: 15px;
+  }
 
 `;
 const DailyWeatherContainer = styled.div`
@@ -102,14 +105,14 @@ margin-left: 15px;
 `;
 
 const CityName = styled.p`
-font-size: 19pt;
+font-size: 19px;
 color: ${colors.primaryTextColor};
 margin-bottom: 0px; 
 
 `;
 
 const WeatherDescription = styled.p`
-font-size: 13pt;
+font-size: 13px;
 color: ${colors.secondaryTextColor};
 margin-top: 0px; 
 text-transform: capitalize;
@@ -119,7 +122,8 @@ text-transform: capitalize;
 const TopRightCorner = styled.div`
 display: flex;
 align-items: center; 
-margin-left: 30px;
+justify-content: flex-end;
+margin-right: 15px;
 
 `;
 const WeatherIcon = styled.img`
@@ -128,7 +132,7 @@ const WeatherIcon = styled.img`
   margin-right: 10px;
 `;
 const Temperature = styled.p`
-font-size: 26pt;
+font-size: 26px;
 margin-bottom: 0px;
 margin-top: 0px;
 `;
@@ -136,16 +140,13 @@ margin-top: 0px;
 const BottomRightCorner = styled.div`
 margin-right: 15px;
  p {
-  font-size: 13pt;
+  font-size: 13px;
   color: ${colors.secondaryTextColor};
   margin-top: 0px;
   margin-bottom: 0px;
   text-align: right;
   white-space: nowrap;
-
   }
-
-
 `;
 
 
@@ -157,12 +158,12 @@ align-self: end;
 
 const FormatedDate = styled.p`
 margin-bottom: 0px;
-font-size: 15pt;
+font-size: 15px;
 color: ${colors.primaryTextColor};
 `;
 const Time = styled.p`
 margin-top: 0px;
-font-size: 13pt;
+font-size: 13px;
 color: ${colors.secondaryTextColor};
 `;
 

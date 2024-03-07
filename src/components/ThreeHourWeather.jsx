@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from './color';
+import colors from '../color';
 
 const ThreeHourWeather = ({ threeHourWeathers }) => {
   if (!threeHourWeathers) {
@@ -8,7 +8,7 @@ const ThreeHourWeather = ({ threeHourWeathers }) => {
 
   return (
     <ThreeHourWeatherWrap>
-      {threeHourWeathers.list.map((threeHour) => {
+      {threeHourWeathers.list?.map((threeHour) => {
         const time = new Date(threeHour.dt * 1000);
         const hours = time.getHours().toString().padStart(2, '0'); //extract hours from time
         const minutes = time.getMinutes().toString().padStart(2, '0'); // extract minutes from time
@@ -27,8 +27,8 @@ const ThreeHourWeather = ({ threeHourWeathers }) => {
             <Temperature>{Math.round(threeHour.main.temp)}°C </Temperature>
             
             <TemperatuDetailsWrap>
-            <p>{threeHour.wind.speed}m/s</p>
-            <p>{threeHour.main.humidity} %</p>
+            <p>{threeHour?.wind?.speed}m/s</p>
+            <p>{threeHour?.main?.humidity} %</p>
             <p>{threeHour?.rain?.['3h'] !== undefined ? `${threeHour.rain['3h']} mm` : '0 mm'}</p>
             </TemperatuDetailsWrap>
    

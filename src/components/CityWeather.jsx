@@ -1,6 +1,6 @@
 import ThreeHourWeather from './ThreeHourWeather';
 import styled from 'styled-components';
-import colors from './color';
+import colors from '../color';
 
 const CityWeather = ({ weather, hourlyWeathers,cityWeathertoShow }) => {
 
@@ -28,7 +28,7 @@ const time = new Date();
 const hours = String(time.getHours()).padStart(2, '0');
 const minutes = String(time.getMinutes()).padStart(2, '0');
 
-
+//get todays date
 const today = new Date();
 const day = today.getDate();
 const month = today.toLocaleDateString('en-US', { month: 'long' });
@@ -37,9 +37,7 @@ const month = today.toLocaleDateString('en-US', { month: 'long' });
 //get the correct ending for the date
 const listOfLastDigits = ['th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th'];
 const lastDigit = day % 10;
- const dateEnding = listOfLastDigits[lastDigit];
-
-
+const dateEnding = listOfLastDigits[lastDigit];
 const formattedDate = `${month} ${day}${dateEnding}`;
 
    

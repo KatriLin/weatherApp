@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from './color';
+import colors from '../color';
 
 
 const Header = () => {

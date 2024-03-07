@@ -1,4 +1,3 @@
-import './App.css'
 import { useState, useEffect } from 'react'
 import fetchWeatherDataForCities from './fetchWeatherData';
 import fetchThreeHourWeather from './fetchThreeHourWeather';
@@ -6,6 +5,9 @@ import { cities } from './cityCordinates';
 import CityWeather from './CityWeather';
 import Header from './Header';
 import DropdownMenu from './DropdownMenu'
+import colors from './color';
+import styled, { createGlobalStyle } from 'styled-components';
+
 
 
 function App() {
@@ -39,17 +41,30 @@ function App() {
 
  
   return (
-    <>
-       <Header />
+
+    
+    <div>
+    <Header />
+      <GlobalStyle />
        <DropdownMenu cities={cities} handleCitySelect={handleCitySelect} />
-       <ul>
+       
        {weathers.map((weather, index) => (
   <CityWeather key={index} hourlyWeathers={hourlyWeathers} weather={weather} cityWeathertoShow={cityWeathertoShow} />
 ))}
-   </ul>
-  
-    </>
+ 
+    </div>
+   
   )
 }
+
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${colors.lightGreyBackground};
+    font-family: Arial, sans-serif;
+    margin: 0px;
+  
+  }
+`;
 
 export default App

@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+import colors from './color';
 
 const ThreeHourWeather = ({ threeHourWeathers }) => {
   if (!threeHourWeathers) {
@@ -5,7 +7,7 @@ const ThreeHourWeather = ({ threeHourWeathers }) => {
   }
 
   return (
-    <div className='threeHourWeather'>
+    <ThreeHourWeatherWrap>
       {threeHourWeathers.list.map((threeHour) => {
         const time = new Date(threeHour.dt * 1000);
         const hours = time.getHours().toString().padStart(2, '0'); //extract hours from time
@@ -13,28 +15,94 @@ const ThreeHourWeather = ({ threeHourWeathers }) => {
         const extractHour = `${hours}:${minutes}`;
         const icon = threeHour?.weather?.[0]?.icon;
         const iconImage = icon ? `http://openweathermap.org/img/w/${icon}.png` : undefined
-        
         return (
-          <div key={threeHour.dt}>
-            <p>{threeHour.id}</p>
-            <p>{extractHour}</p>
-            <p>{threeHour.main.temp} C </p>
-            <p>{threeHour.main.humidity} %</p>
-            <p>{threeHour.wind.speed}m/s</p>
-            <p>Precipitation{threeHour?.rain?.["3h"]}</p>
+          <ThreeHourItem key={threeHour.dt}>
             
+            <CurrentTime>{extractHour}</CurrentTime>
             <img
-    src={iconImage}
-    alt="Weather Icon"
-    className="weatherIconInThreeHours"
-    />
+        src={iconImage}
+        alt="Weather Icon"
+        className="weatherIconInThreeHours"
+        />
+            <Temperature>{Math.round(threeHour.main.temp)}°C </Temperature>
+            
+            <TemperatuDetailsWrap>
+            <p>{threeHour.wind.speed}m/s</p>
+            <p>{threeHour.main.humidity} %</p>
+            <p>{threeHour?.rain?.['3h'] !== undefined ? `${threeHour.rain['3h']} mm` : '0 mm'}</p>
+            </TemperatuDetailsWrap>
+   
           
-          </div>
+          </ThreeHourItem>
         );
       })}
-    </div>
+    </ThreeHourWeatherWrap>
   );
 };
+
+
+
+const ThreeHourWeatherWrap =styled.div`
+display: flex;
+`;
+
+const ThreeHourItem =styled.div`
+margin: 4px;
+text-align: center; 
+width: calc(20% - 8px);  
+background-color: ${colors.whiteBackground};
+border: 1px solid ${colors.greyBorderColor};
+border-radius: 5px;
+
+&:first-child {
+    margin-left: 0px;
+  }
+
+  &:last-child {
+    margin-right: 0px;
+  }
+  
+@media (max-width: 768px) { /* Tablet view */
+width: calc(20% - 8px);  
+  }
+
+@media (max-width: 576px) { /* Mobile devices */
+
+width: calc(20% - 8px); 
+  }
+
+`;
+
+
+const CurrentTime =styled.p`
+font-size: 13pt;
+color: ${colors.secondaryTextColor};
+margin-bottom: 0px;
+`;
+
+
+const Temperature =styled.p`
+font-size: 15pt;
+color: ${colors.primaryTextColor};
+margin-top: 0px;
+`;
+
+const TemperatuDetailsWrap = styled.div`
+background-color: ${colors.lightBlueBackground};
+padding: 5px 0 5px 0;
+p {
+  font-size: 10pt;
+  color: ${colors.secondaryTextColor};
+  margin-top: 0px;
+  margin-bottom: 0px;
+  white-space: nowrap;
+  }
+
+
+`;
+
+
+
 
 export default ThreeHourWeather;
 

@@ -51,24 +51,27 @@ function App() {
     <div>
       <GlobalStyle />
       <Header />
-
-      <DropdownMenu cities={cities} handleCitySelect={handleCitySelect} />
-      <AppWrapper>
-        {error ? (
+      {error ? (
+        <MessageContainer>
           <ErrorMessage>
             Oops! Something went wrong while fetching weather data.
           </ErrorMessage>
-        ) : (
-          weathers.map((weather, index) => (
-            <CityWeather
-              key={index}
-              hourlyWeathers={hourlyWeathers}
-              weather={weather}
-              cityWeathertoShow={cityWeathertoShow}
-            />
-          ))
-        )}
-      </AppWrapper>
+        </MessageContainer>
+      ) : (
+        <>
+          <DropdownMenu cities={cities} handleCitySelect={handleCitySelect} />
+          <AppWrapper>
+            {weathers.map((weather, index) => (
+              <CityWeather
+                key={index}
+                hourlyWeathers={hourlyWeathers}
+                weather={weather}
+                cityWeathertoShow={cityWeathertoShow}
+              />
+            ))}
+          </AppWrapper>
+        </>
+      )}
     </div>
   );
 }
@@ -102,5 +105,11 @@ const ErrorMessage = styled.p`
   font-size: 16px;
   font-weight: bold;
   margin-top: 40px;
+`;
+
+const MessageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export default App;

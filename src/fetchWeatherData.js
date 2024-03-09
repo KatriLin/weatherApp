@@ -12,8 +12,7 @@ const fetchWeatherDataForCities = async (cities, api_key) => {
     const data = weatherInformation.map((response) => response.data);
     return data;
   } catch (error) {
-    console.log("'Error with weather data fetching", error);
-    return [];
+    throw new Error("Error fetching weather data for cities");
   }
 };
 

@@ -3,8 +3,6 @@ import styled from "styled-components";
 import colors from "../color";
 
 const CityWeather = ({ weather, hourlyWeathers, cityWeathertoShow }) => {
-  console.log("weather", weather);
-
   const addSpecialCharactersToCityName = (cityName) => {
     if (cityName.toLowerCase() === "jyvaskyla") {
       return "Jyväskylä";
@@ -58,7 +56,7 @@ const CityWeather = ({ weather, hourlyWeathers, cityWeathertoShow }) => {
         <TopLeftCorner>
           <CityName>{addSpecialCharactersToCityName(weather?.name)}</CityName>
           <WeatherDescription>
-            {weather?.weather[0].description}
+            {weather?.weather[0]?.description}
           </WeatherDescription>
         </TopLeftCorner>
         <TopRightCorner>
@@ -83,7 +81,7 @@ const CityWeather = ({ weather, hourlyWeathers, cityWeathertoShow }) => {
           <p>
             Precipitation:{" "}
             {weather?.rain?.["3h"] !== undefined
-              ? `${weather.rain["3h"]} mm`
+              ? `${Math.round(weather.rain["3h"])} mm`
               : "0 mm"}
           </p>
         </BottomRightCorner>

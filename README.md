@@ -25,6 +25,13 @@ npm run dev
 Project will open in the localhost: http://localhost:5173/
 
 
+# For testing run in the command line
+```
+npm test
+```
+
+
+
 
 
 

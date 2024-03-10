@@ -39,8 +39,9 @@ function App() {
           api_key,
         );
         setHourlyWeathers(threeHourWeatherData);
+        setError(null); 
       } catch (error) {
-        setError(error.message);
+        setError(error);
         console.log("Error while fetching the data", error);
       }
     };
@@ -91,7 +92,7 @@ const AppWrapper = styled.div`
   margin: 0px;
   max-width: 100%;
   @media (min-width: 768px) {
-    /* styles for tablet display the weathercontainer element next to eachother in tablet*/
+    /* styles for tablet display the weathercontainer element next to each other in tablet*/
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;

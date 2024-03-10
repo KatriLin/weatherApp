@@ -7,7 +7,6 @@ test("renders threehour weather corretly", async () => {
     list: [
       {
         dt: 1709974800,
-        weather: [{ icon: "01d" }],
         main: { temp: -2.7, humidity: 56 },
         wind: { speed: 2 },
         rain: { "3h": 0.5 },
@@ -21,4 +20,5 @@ test("renders threehour weather corretly", async () => {
   expect(await screen.findByText("-3°C")).toBeInTheDocument();
   expect(await screen.findByText("2m/s")).toBeInTheDocument();
   expect(await screen.findByText("56 %")).toBeInTheDocument();
+
 });

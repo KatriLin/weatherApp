@@ -88,7 +88,7 @@ test("precipitation data is corretly presented when the field is present", async
     />,
   );
 
-  expect(await screen.findByText("Precipitation: 5 mm")).toBeInTheDocument();
+  expect(await screen.findByText("Precipitation (3h): 5 mm")).toBeInTheDocument();
 });
 
 test("precipitation data is corretly presented when the field is NOT present", async () => {
@@ -109,5 +109,5 @@ test("precipitation data is corretly presented when the field is NOT present", a
     />,
   );
 
-  expect(await screen.findByText("Precipitation: 0 mm")).toBeInTheDocument();
+  expect(await screen.findByText("Precipitation (3h): 0 mm")).toBeInTheDocument();
 });

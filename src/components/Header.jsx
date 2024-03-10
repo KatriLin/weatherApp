@@ -17,6 +17,7 @@ const Headerwrap = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${colors.whiteBackground};
+  border: 1px solid ${colors.greyBorderColor};
 `;
 
 const HearderText = styled.p`

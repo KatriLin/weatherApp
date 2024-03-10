@@ -14,8 +14,7 @@ const fetchThreeHourWeather = async (cities, api_key) => {
     const data = hourlyWeatherInformation.map((response) => response.data);
     return data;
   } catch (error) {
-    console.log("'Error with weather data fetching", error);
-    return [];
+    throw new Error("Error fetching weather data for cities");
   }
 };
 export default fetchThreeHourWeather;

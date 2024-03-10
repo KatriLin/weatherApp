@@ -79,7 +79,7 @@ const CityWeather = ({ weather, hourlyWeathers, cityWeathertoShow }) => {
           <p>Wind: {weather?.wind?.speed} m/s</p>
           <p>Humidity: {weather?.main?.humidity} % </p>
           <p>
-            Precipitation:{" "}
+            Precipitation (3h):{" "}
             {weather?.rain?.["3h"] !== undefined
               ? `${Math.round(weather.rain["3h"])} mm`
               : "0 mm"}

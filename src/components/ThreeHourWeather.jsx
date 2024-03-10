@@ -32,7 +32,7 @@ const ThreeHourWeather = ({ threeHourWeathers }) => {
               <p>{threeHour?.main?.humidity} %</p>
               <p>
                 {threeHour?.rain?.["3h"] !== undefined
-                  ? `${Math.ceil(threeHour.rain["3h"])} mm`
+                  ? `${Math.round(threeHour.rain["3h"])} mm`
                   : "0 mm"}
               </p>
             </TemperatuDetailsWrap>
